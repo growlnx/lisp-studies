@@ -6,8 +6,8 @@
 	(format t "~A - version: ~A~%" program version)
 	(format t "Usage: ~A [OPTIONS]~2%OPTIONS:~%" (file-namestring *LOAD-PATHNAME*) )
 	(format t "~5T--h,-help      Show this help mensage~%")
-	(format t "~5T--i,-input     Input file [REQUIRED]~%")
-	(format t "~5T--o,-output    Output file [REQUIRED]~%")
+	(format t "~5T--i FILE,-input FILE     Input file [REQUIRED]~%")
+	(format t "~5T--o FILE,-output FILE    Output file [REQUIRED]~%")
 )
 
 ; parsing ...
@@ -53,9 +53,9 @@
 (makunbound 'arguments)
 
 (if (eql (gethash 'input *options*) NIL)
-	(format t "[--i, -input]  Input are required!~%")
+	(format t "[--i FILE, -input FILE]   Input are required!~%")
 )
 
 (if (eql (gethash 'output *options*) NIL)
-	(format t "[--o, -output] Output are required!~%")
+	(format t "[--o FILE, -output FILE]  Output are required!~%")
 )
