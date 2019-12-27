@@ -20,16 +20,13 @@
 
 (loop while (not (eq arguments NIL)) do	
 	(setf arg (car arguments))
-	(print "OOOHOHOHHO")
+      
 	(if (or (string= arg '"--h") (string= arg '"-help"))
 		(quit (help))
     	; elsif
 	    (if (or (string= arg '"--i") (string= arg '"-input"))
 	    	(progn
 	    		(setf arguments (cdr arguments)) ; remove --i
-	    		(if (not findfile (car arguments))
-					(quit(format "File ~A does not exists in your system!~%"))
-				)
 	    		(setf (gethash 'input *options*) (car arguments)) ; store input
 	    		(setf arguments (cdr arguments)) ; remove input
 	    		; (write (gethash 'input *options*))
